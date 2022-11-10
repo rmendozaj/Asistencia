@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <table>
+            <thead>
+            <tr>
+                <th>Matricula</th>
+                <th>Nombre</th>
+                <th>A. Paterno</th>
+                <th>A. Materno</th>
+                <th>Grupo</th>
+                <th>Carrera</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="alumnos : ${alumnos}">
+                <td th:text="${alumnos.acvealumno}"></td>
+                <td th:text="${alumnos.anombre}"></td>
+
+                <td th:text="${alumnos.aapaterno}"></td>
+                <td th:text="${alumnos.aamaterno}"></td>
+                <td th:text="${alumnos.agrupo}"></td>
+                <td th:text="${alumnos.acarrera}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
