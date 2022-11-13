@@ -5,9 +5,12 @@
 package com.utvt.mec.asistencia.Controller;
 
 import com.utvt.mec.asistencia.Dao.AlumnoDao;
+import com.utvt.mec.asistencia.Dao.AsistenciaDao;
 import com.utvt.mec.asistencia.Entity.Alumno;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+
+import com.utvt.mec.asistencia.Entity.Asistencia;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +27,9 @@ public class TomaAsistencia {
     
     @Autowired
     private AlumnoDao alumnoDao;
+
+    @Autowired
+    private AsistenciaDao asistenciaDao;
     
     @GetMapping("/Asistencia/{matricula}")
     public String TomaAsistencia(Model model,@PathVariable String matricula){
@@ -38,12 +44,15 @@ public class TomaAsistencia {
     return "tomaAsistencia";
     }
     
-    @GetMapping("/RegistraAsistencia/{matricula}")
-    public String regAsistencia(Model model,@PathVariable String matricula){
-        
-        System.out.println(matricula);
-        
-        return "";
+    @GetMapping("/RegistraAsistencia/{tipo}/{matricula}")
+    public String regAsistencia(Model model,@PathVariable String matricula,@PathVariable int tipo){
+        Asistencia asistencia=new Asistencia();
+        asistencia.setAstipo(tipo);
+        asistencia.setAshora(LocalDateTime.now());
+        asistencia.setAsalumno(matricula);
+        asistenciaDao.save(asistencia);
+
+        return "redirect:/";
     }
     
 }

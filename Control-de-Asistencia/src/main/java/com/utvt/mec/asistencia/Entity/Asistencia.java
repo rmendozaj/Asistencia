@@ -5,10 +5,10 @@
 package com.utvt.mec.asistencia.Entity;
 
 import java.time.LocalDateTime;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 import lombok.Data;
+import org.hibernate.annotations.GeneratorType;
 
 /**
  *
@@ -21,6 +21,7 @@ public class Asistencia {
     
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer asidasistencia;
 
     private Integer astipo;

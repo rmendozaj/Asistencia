@@ -100,9 +100,9 @@
                                                 <small class="text-muted" th:text="${fecha}">12 Dec 2018 at 1:16 AM</small>
                                             </div>
                                         </div>
-                                        <a type="button"href="/" class="btn btn-sm btn-primary" >Registrar Entrada</a>
+                                        <a type="button"th:href="@{/RegistraAsistencia/1/} + ${alumno.acvealumno}" class="btn btn-sm btn-primary" >Registrar Entrada</a>
 
-                                        <a type="button" class="btn btn-sm btn-danger">Registrar Salida</a>
+                                        <a type="button"th:href="@{/RegistraAsistencia/2/} + ${alumno.acvealumno}" class="btn btn-sm btn-danger" >Registrar Entrada</a>
                                     </div>
                                 </div>
                                 <!--/ post 1 -->
